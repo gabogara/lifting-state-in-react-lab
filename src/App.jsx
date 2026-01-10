@@ -26,6 +26,10 @@ const App = () => {
   const addToBurger = (ingredient) => {
     setStack((prev) => [...prev, ingredient]);
   };
+
+  const removeFromBurger = (indexToRemove) => {
+    setStack((prev) => prev.filter((ingredient, idx) => idx !== indexToRemove));
+  };
   return (
     <main>
       <h1>Burger Stacker</h1>
@@ -34,7 +38,7 @@ const App = () => {
           ingredients={availableIngredients}
           onAdd={addToBurger}
         />
-        <BurgerStack ingredients={stack} />
+        <BurgerStack ingredients={stack} onRemove={removeFromBurger} />
       </section>
     </main>
   );

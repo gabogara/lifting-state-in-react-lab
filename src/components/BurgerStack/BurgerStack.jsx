@@ -1,4 +1,4 @@
-const BurgerStack = ({ ingredients }) => {
+const BurgerStack = ({ ingredients, onRemove }) => {
   return (
     <ul>
       {ingredients.map((ingredient, idx) => (
@@ -7,6 +7,7 @@ const BurgerStack = ({ ingredients }) => {
           style={{ backgroundColor: ingredient.color }}
         >
           <span>{ingredient.name}</span>
+          <button onClick={() => onRemove(idx)}>X</button>
         </li>
       ))}
     </ul>
