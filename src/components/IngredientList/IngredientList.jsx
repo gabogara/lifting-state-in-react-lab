@@ -1,14 +1,14 @@
+import Ingredient from "../Ingredient/Ingredient";
 const IngredientList = ({ ingredients, onAdd }) => {
   return (
     <ul>
       {ingredients.map((ingredient, idx) => (
-        <li
+        <Ingredient
           key={`${ingredient.name}-${idx}`}
-          style={{ backgroundColor: ingredient.color }}
-        >
-          <span>{ingredient.name}</span>
-          <button onClick={() => onAdd(ingredient)}>+</button>
-        </li>
+          ingredient={ingredient}
+          buttonLabel="+"
+          onClick={() => onAdd(ingredient)}
+        />
       ))}
     </ul>
   );
