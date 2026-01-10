@@ -21,11 +21,19 @@ const availableIngredients = [
 ];
 
 const App = () => {
+  const [stack, setStack] = useState([]);
+
+  const addToBurger = (ingredient) => {
+    setStack((prev) => [...prev, ingredient]);
+  };
   return (
     <main>
       <h1>Burger Stacker</h1>
       <section>
-        <IngredientList ingredients={availableIngredients} />
+        <IngredientList
+          ingredients={availableIngredients}
+          onAdd={addToBurger}
+        />
         <BurgerStack />
       </section>
     </main>

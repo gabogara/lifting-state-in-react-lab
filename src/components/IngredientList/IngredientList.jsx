@@ -1,14 +1,12 @@
-const IngredientList = ({ ingredients }) => {
+const IngredientList = ({ ingredients, onAdd }) => {
   return (
     <ul>
-      {ingredients.map((ingredient, idx) => {
-        return (
-          <li key={idx}>
-            {" "}
-            <p> {ingredient.name} </p>{" "}
-          </li>
-        );
-      })}
+      {ingredients.map((ingredient, idx) => (
+        <li key={`${ingredient.name}-${idx}`}>
+          <span>{ingredient.name}</span>
+          <button onClick={() => onAdd(ingredient)}>+</button>
+        </li>
+      ))}
     </ul>
   );
 };
