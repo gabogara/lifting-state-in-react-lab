@@ -1,14 +1,14 @@
+import Ingredient from "../Ingredient/Ingredient";
 const BurgerStack = ({ ingredients, onRemove }) => {
   return (
     <ul>
       {ingredients.map((ingredient, idx) => (
-        <li
+        <Ingredient
           key={`${ingredient.name}-${idx}`}
-          style={{ backgroundColor: ingredient.color }}
-        >
-          <span>{ingredient.name}</span>
-          <button onClick={() => onRemove(idx)}>X</button>
-        </li>
+          ingredient={ingredient}
+          onClick={() => onRemove(idx)}
+          buttonLabel="X"
+        />
       ))}
     </ul>
   );
